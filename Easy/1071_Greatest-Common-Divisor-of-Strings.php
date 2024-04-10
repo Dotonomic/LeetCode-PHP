@@ -5,12 +5,6 @@ https://leetcode.com/problems/greatest-common-divisor-of-strings/
 
 class Solution {
 
-    /**
-     * @param String $str1
-     * @param String $str2
-     * @return String
-     */
-
     function madeOf($str, $sub) {
         if (strlen($str) % strlen($sub) == 0)
             return $str == str_repeat($sub, strlen($str)/strlen($sub));
@@ -18,6 +12,11 @@ class Solution {
         return FALSE;
     }
 
+    /**
+     * @param String $str1
+     * @param String $str2
+     * @return String
+     */
     function gcdOfStrings($str1, $str2) {
         $gcd = '';
 
