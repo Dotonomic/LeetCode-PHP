@@ -10,7 +10,6 @@ class Solution {
      * @param String $str2
      * @return String
      */
-
     function madeOf($str, $sub) {
         if (strlen($str) % strlen($sub) == 0)
             return $str == str_repeat($sub, strlen($str)/strlen($sub));
