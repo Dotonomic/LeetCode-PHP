@@ -1,6 +1,8 @@
 https://leetcode.com/problems/reverse-vowels-of-a-string/
 
 
+<?php
+
 class Solution {
     
     function isVowel($letter) {
