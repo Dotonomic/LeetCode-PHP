@@ -1,4 +1,4 @@
-https://leetcode.com/problems/first-missing-positive/description/
+https://leetcode.com/problems/first-missing-positive
 
 
 <?php
@@ -10,17 +10,25 @@ class Solution {
      * @return Integer
      */
     function firstMissingPositive($nums) {
-        $fmp = 1;
-        
-        sort($nums);
-        
-        foreach ($nums as $num) {
-            if ($num > $fmp)
-                return $fmp;
+        $max = pow(2, 31) - 1;
 
-            if ($num == $fmp)
-                $fmp++;
+        for ($i = 0; isset($nums[$i]); $i++) {
+            $num = $nums[$i];
+            
+            unset($nums[$i]);
+
+            if ($num > 0)
+                $nums[$num + $max] = $num;
         }
+
+        $fmp = $max + 1;
+
+        if (!isset($nums[$fmp]))
+            return 1;
+
+        foreach ($nums as $num)
+            if (!isset($nums[$num + $max + 1]))
+                $fmp = min($fmp, $num + 1);
 
         return $fmp;
     }
